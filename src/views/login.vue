@@ -97,6 +97,9 @@
     },
     watch: {
       $route: {
+        // 这里会监听到 this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
+        //this.$router.push 会走后面，推到'/',然后路由配置那里，重定向到 /index
+        //所以 this.redirect 会拿到配置路由的 redirect: 'index'
         handler: function(route) {
           this.redirect = route.query && route.query.redirect;
         },
@@ -113,7 +116,6 @@
           this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;
           if (this.captchaEnabled) {
             this.codeUrl = "data:image/gif;base64," + res.img;
-  
             this.loginForm.uuid = res.uuid;
           }
         });

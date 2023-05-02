@@ -7,6 +7,7 @@ import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
 import './assets/icons' // icon
+import './authToken'
 
 import store from './store'
 import router from './router'
