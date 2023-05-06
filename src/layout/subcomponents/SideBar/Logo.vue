@@ -1,10 +1,13 @@
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}" :style="{ backgroundColor: sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground }">
     <transition name="sidebarLogoFade">
-      <router-link v-if="!collapse" key="collapse" class="sidebar-logo-link" to="/">
+      <!-- 如果是折叠，只展开logo-->
+      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
         <h1 v-else class="sidebar-title" :style="{ color: sideTheme === 'theme-dark' ? variables.logoTitleColor : variables.logoLightTitleColor }">{{ title }} </h1>
       </router-link>
+
+      <!-- 如果是展开，展开logo和文字" -->
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
         <h1 class="sidebar-title" :style="{ color: sideTheme === 'theme-dark' ? variables.logoTitleColor : variables.logoLightTitleColor }">{{ title }} </h1>
@@ -35,12 +38,9 @@ export default {
   },
   data() {
     return {
-      title: '若依管理系统',
+      title: '小龙管理系统',
       logo: logoImg
     }
-  },
-  created(){
-    console.log('collapse',this.collapse);
   }
 }
 </script>

@@ -56,8 +56,8 @@ export default {
     }),
     classObj() {
       return {
-        hideSidebar: this.sidebar.opened,
-        openSidebar: !this.sidebar.opened,
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === "mobile",
       };

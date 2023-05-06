@@ -180,6 +180,7 @@ export default {
           border-radius: 10px;
         }
 
+        // 最右边的下拉箭头样式
         .el-icon-caret-bottom {
           cursor: pointer;
           position: absolute;
