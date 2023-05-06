@@ -38,8 +38,10 @@ $base-sub-menu-hover:#001528;
 
 $base-sidebar-width: 200px;
 
-// the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+
+/**
+ CSS模块化导出，如果需要使用 import variables from "@/assets/styles/variables.scss";
+*/
 :export {
   menuColor: $base-menu-color;
   menuLightColor: $base-menu-light-color;

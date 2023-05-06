@@ -7,14 +7,17 @@
 }
 
 @mixin scrollBar {
+  //滚动条没有滑块的轨道部分
   &::-webkit-scrollbar-track-piece {
     background: #d3dce6;
   }
 
+  // 整个滚动条
   &::-webkit-scrollbar {
     width: 6px;
   }
 
+  //滚动条上的滚动滑块
   &::-webkit-scrollbar-thumb {
     background: #99a9bf;
     border-radius: 20px;

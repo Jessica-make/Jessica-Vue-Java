@@ -1,16 +1,19 @@
 import Vue from 'vue'
-import App from './App.vue'
 
 import Cookies from 'js-cookie'
 
 import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
-import './assets/icons' // icon
-import './authToken'
+import '@/assets/styles/index.scss' // global css
+import '@/assets/styles/Jessica.scss' // Jessica css
+import App from './App.vue'
 
 import store from './store'
 import router from './router'
+
+import './assets/icons' // icon
+import './authToken'
 
 Vue.config.productionTip = false
 

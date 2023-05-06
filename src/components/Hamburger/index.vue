@@ -1,5 +1,5 @@
 <template>
     <div>
-        首页
+        Hamburger
     </div>
 </template>
