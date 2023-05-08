@@ -1,32 +1,25 @@
 <template>
-  <section>
-    <div ref="hello">
-      <h1>Hello World ~</h1>
-    </div>
-    <el-button type="danger" @click="get">点击</el-button>
-  </section>
+  <div>
+    <el-button type="primary" size="default" @click="hasOneShowingChild()"
+      >test</el-button
+    >
+  </div>
 </template>
+
 <script>
-  export default {
-    methods: {
-      get() {
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    hasOneShowingChild(children = [], parent) {
+      if (!children) {
+        children = [];
+      }else{
+        console.log('children',children);
       }
     },
-    mounted() {
-      console.log(333);
-      console.log(this.$refs['hello']);
-      this.$nextTick(() => {
-        console.log(444);
-        console.log(this.$refs['hello']);
-      });
-    },
-    created() {
-      console.log(111);
-      console.log(this.$refs['hello']);
-      this.$nextTick(() => {
-        console.log(222);
-        console.log(this.$refs['hello']);
-      });
-    }
-  }
+
+  },
+};
 </script>

@@ -50,6 +50,14 @@ export function getInfo() {
   })
 }
 
+// 获取路由
+export const getRouters = () => {
+  return request({
+    url: '/getRouters',
+    method: 'get'
+  })
+}
+
 // 退出方法
 export function logout() {
   return request({
