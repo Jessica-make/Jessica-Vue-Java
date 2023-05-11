@@ -72,9 +72,9 @@ export default {
       return !this.sidebar.opened;
     },
   },
-  created(){
-        // console.log('sidebarRouters ',this.sidebarRouters);
-    }
+  // created(){
+  //       console.log('sidebarRouters ',this.sidebarRouters);
+  //   }
 
 };
 </script>

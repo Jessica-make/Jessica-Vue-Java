@@ -61,11 +61,11 @@ export const constantRoutes = [
     component: () => import('@/views/error/401'),
     hidden: true
   },
-  {
-    path: '/demo',
-    component: () => import('@/views/demo/index'),
-    hidden: true
-  },
+  // {
+  //   path: '/demo',
+  //   component: () => import('@/views/demo/index'),
+  //   hidden: true
+  // },
   {
     path: '',
     component: Layout,

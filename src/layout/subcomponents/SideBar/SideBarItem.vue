@@ -1,6 +1,11 @@
 <template>
+  <!-- !item.hidden 会把item.hidden为true的屏蔽掉
+   如 redirect,login,register,404,401,user
+   保留了 sidebarRouters 的 第5、7、8、9、10子项
+  -->
   <div v-if="!item.hidden">
-    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
+    <!-- 展示一层 -->
+    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path, onlyOneChild.query)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" />
@@ -8,6 +13,7 @@
       </app-link>
     </template>
 
+    <!-- 有多个，递归展示 -->
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
@@ -56,7 +62,6 @@ export default {
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
-      
       const showingChildren = children.filter(item => {
         if (item.hidden) {
           return false
@@ -66,10 +71,6 @@ export default {
           return true
         }
       })
-
-      // console.log('showingChildren ',showingChildren);
-      console.log('parent ',parent);
-
 
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {

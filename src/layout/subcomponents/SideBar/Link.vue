@@ -1,32 +1,43 @@
 <template>
-
-    
+  <component :is="type" v-bind="linkProps(to)">
+    <slot />
+  </component>
 </template>
 
 <script>
-//正则表达式 判断是否外部请求开头 http/https /mailto /tel
-import { isExternal } from "@/utils/validate";
+import { isExternal } from '@/utils/validate'
 
 export default {
   props: {
     to: {
       type: [String, Object],
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     isExternal() {
-      return isExternal(this.to);
+      return isExternal(this.to)
     },
     type() {
       if (this.isExternal) {
-        return "a";
+        return 'a'
       }
-      return "router-link";
-    },
+      return 'router-link'
+    }
   },
-};
+  methods: {
+    linkProps(to) {
+      if (this.isExternal) {
+        return {
+          href: to,
+          target: '_blank',
+          rel: 'noopener'
+        }
+      }
+      return {
+        to: to
+      }
+    }
+  }
+}
 </script>
-
-<style scoped>
-</style>

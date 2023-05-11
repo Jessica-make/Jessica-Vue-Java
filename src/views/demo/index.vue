@@ -15,9 +15,8 @@ export default {
     hasOneShowingChild(children = [], parent) {
       if (!children) {
         children = [];
-      }else{
-        console.log('children',children);
       }
+      
     },
 
   },

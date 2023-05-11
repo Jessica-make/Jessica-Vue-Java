@@ -11,9 +11,14 @@ import App from './App.vue'
 
 import store from './store'
 import router from './router'
+import directive from './directive' // directive
+import plugins from './plugins' // plugins
+import { download } from '@/utils/request'
 
 import './assets/icons' // icon
 import './authToken'
+
+
 
 Vue.config.productionTip = false
 
