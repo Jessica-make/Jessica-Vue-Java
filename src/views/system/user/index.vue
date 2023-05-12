@@ -459,6 +459,7 @@
       }
     },
     created() {
+      console.log('dict ',this.dict);
       this.getList();
       this.getDeptTree();
       this.getConfigKey("sys.user.initPassword").then(response => {
